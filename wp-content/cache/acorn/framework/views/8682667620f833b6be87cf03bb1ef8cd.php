@@ -1,0 +1,1 @@
+<?php /**PATH /home/dspangenberg/Projects/gnadtec.de/wp-content/themes/gnadtec.de/resources/views/partials/comments.blade.php ENDPATH**/ ?>
