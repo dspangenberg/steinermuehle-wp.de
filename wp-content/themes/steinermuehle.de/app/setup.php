@@ -270,13 +270,16 @@ add_filter('render_block', function ($block_content, $block) {
         $output .= '<script type="application/json" id="' . $gallery_id . '-data">' . $images_json . '</script>';
         $output .= '<script type="application/json" id="' . $gallery_id . '-columns">' . $columns_json . '</script>';
         $output .= '<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const container = document.getElementById("' . $gallery_id . '");
-            const imagesData = JSON.parse(document.getElementById("' . $gallery_id . '-data").textContent);
-            const columns = JSON.parse(document.getElementById("' . $gallery_id . '-columns").textContent);
+        (function() {
+            function initGallery() {
+                const container = document.getElementById("' . $gallery_id . '");
+                if (!container) return;
 
-            container.setAttribute("x-data", JSON.stringify({ open: false, currentIndex: 0, images: imagesData }));
-            container.className = "my-6";
+                const imagesData = JSON.parse(document.getElementById("' . $gallery_id . '-data").textContent);
+                const columns = JSON.parse(document.getElementById("' . $gallery_id . '-columns").textContent);
+
+                container.setAttribute("x-data", "{ open: false, currentIndex: 0, images: " + JSON.stringify(imagesData) + " }");
+                container.className = "my-6";
 
             // Gallery grid - dynamic columns based on setting
             const grid = document.createElement("div");
@@ -386,7 +389,18 @@ add_filter('render_block', function ($block_content, $block) {
             }
 
             container.appendChild(lightbox);
-        });
+            }
+
+            // Initialize when DOM is ready
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initGallery);
+            } else {
+                initGallery();
+            }
+
+            // Also initialize when Alpine is ready (for mobile/late loading)
+            document.addEventListener("alpine:init", initGallery);
+        })();
         </script>';
 
         return $output;
