@@ -34,6 +34,11 @@ body {
     font-family: var(--font-sans), sans-serif;
 }
 
+/* Alpine.js cloaking */
+[x-cloak] {
+    display: none !important;
+}
+
 
 .video-docker {
     @apply relative w-full h-screen;

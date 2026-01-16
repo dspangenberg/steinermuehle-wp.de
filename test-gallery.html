@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .grid { display: grid; gap: 1rem; }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        img { width: 100%; cursor: pointer; }
+        .fixed { position: fixed; }
+        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+        .z-50 { z-index: 50; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .bg-black { background-color: rgba(0,0,0,0.9); }
+    </style>
+</head>
+<body>
+    <h1>Gallery Test</h1>
+
+    <div x-data='{ open: false, currentIndex: 0, images: [{"url":"https://via.placeholder.com/800","thumb":"https://via.placeholder.com/300","alt":"Test 1"},{"url":"https://via.placeholder.com/800","thumb":"https://via.placeholder.com/300","alt":"Test 2"}] }'>
+        <div class="grid grid-cols-3">
+            <img src="https://via.placeholder.com/300" alt="Test 1" @click="open = true; currentIndex = 0" />
+            <img src="https://via.placeholder.com/300" alt="Test 2" @click="open = true; currentIndex = 1" />
+        </div>
+
+        <div x-show="open" x-cloak @click.self="open = false" class="fixed inset-0 z-50 flex items-center justify-center bg-black">
+            <button @click="open = false" style="position: absolute; top: 20px; right: 20px; color: white; font-size: 40px;">×</button>
+            <img :src="images[currentIndex].url" :alt="images[currentIndex].alt" style="max-width: 90%; max-height: 90%;" />
+        </div>
+    </div>
+</body>
+</html>
