@@ -1,1 +1,0 @@
-components.container<?php /**PATH /home/dspangenberg/Projects/gnadtec.de/wp-content/cache/acorn/framework/views/49118dd65faa15f6d4f825f42cbf76d4.blade.php ENDPATH**/ ?>
