@@ -1,0 +1,585 @@
+{
+  "__processed__": "This file was generated using Vite",
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "layout": {
+      "contentSize": "48rem"
+    },
+    "background": {
+      "backgroundImage": true
+    },
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "duotone": [],
+      "palette": [
+        {
+          "name": "Red (50)",
+          "slug": "red-50",
+          "color": "oklch(97.1% .013 17.38)"
+        },
+        {
+          "name": "Red (100)",
+          "slug": "red-100",
+          "color": "oklch(93.6% .032 17.717)"
+        },
+        {
+          "name": "Red (200)",
+          "slug": "red-200",
+          "color": "oklch(88.5% .062 18.334)"
+        },
+        {
+          "name": "Red (300)",
+          "slug": "red-300",
+          "color": "oklch(80.8% .114 19.571)"
+        },
+        {
+          "name": "Red (400)",
+          "slug": "red-400",
+          "color": "oklch(70.4% .191 22.216)"
+        },
+        {
+          "name": "Red (500)",
+          "slug": "red-500",
+          "color": "oklch(63.7% .237 25.331)"
+        },
+        {
+          "name": "Red (600)",
+          "slug": "red-600",
+          "color": "oklch(57.7% .245 27.325)"
+        },
+        {
+          "name": "Red (700)",
+          "slug": "red-700",
+          "color": "oklch(50.5% .213 27.518)"
+        },
+        {
+          "name": "Red (800)",
+          "slug": "red-800",
+          "color": "oklch(44.4% .177 26.899)"
+        },
+        {
+          "name": "Red (900)",
+          "slug": "red-900",
+          "color": "oklch(39.6% .141 25.723)"
+        },
+        {
+          "name": "Yellow (50)",
+          "slug": "yellow-50",
+          "color": "oklch(98.7% .026 102.212)"
+        },
+        {
+          "name": "Yellow (100)",
+          "slug": "yellow-100",
+          "color": "oklch(97.3% .071 103.193)"
+        },
+        {
+          "name": "Yellow (200)",
+          "slug": "yellow-200",
+          "color": "oklch(94.5% .129 101.54)"
+        },
+        {
+          "name": "Yellow (300)",
+          "slug": "yellow-300",
+          "color": "oklch(90.5% .182 98.111)"
+        },
+        {
+          "name": "Yellow (400)",
+          "slug": "yellow-400",
+          "color": "oklch(85.2% .199 91.936)"
+        },
+        {
+          "name": "Yellow (500)",
+          "slug": "yellow-500",
+          "color": "oklch(79.5% .184 86.047)"
+        },
+        {
+          "name": "Yellow (600)",
+          "slug": "yellow-600",
+          "color": "oklch(68.1% .162 75.834)"
+        },
+        {
+          "name": "Yellow (700)",
+          "slug": "yellow-700",
+          "color": "oklch(55.4% .135 66.442)"
+        },
+        {
+          "name": "Yellow (800)",
+          "slug": "yellow-800",
+          "color": "oklch(47.6% .114 61.907)"
+        },
+        {
+          "name": "Yellow (900)",
+          "slug": "yellow-900",
+          "color": "oklch(42.1% .095 57.708)"
+        },
+        {
+          "name": "Green (50)",
+          "slug": "green-50",
+          "color": "oklch(98.2% .018 155.826)"
+        },
+        {
+          "name": "Green (100)",
+          "slug": "green-100",
+          "color": "oklch(96.2% .044 156.743)"
+        },
+        {
+          "name": "Green (200)",
+          "slug": "green-200",
+          "color": "oklch(92.5% .084 155.995)"
+        },
+        {
+          "name": "Green (300)",
+          "slug": "green-300",
+          "color": "oklch(87.1% .15 154.449)"
+        },
+        {
+          "name": "Green (400)",
+          "slug": "green-400",
+          "color": "oklch(79.2% .209 151.711)"
+        },
+        {
+          "name": "Green (500)",
+          "slug": "green-500",
+          "color": "oklch(72.3% .219 149.579)"
+        },
+        {
+          "name": "Green (600)",
+          "slug": "green-600",
+          "color": "oklch(62.7% .194 149.214)"
+        },
+        {
+          "name": "Green (700)",
+          "slug": "green-700",
+          "color": "oklch(52.7% .154 150.069)"
+        },
+        {
+          "name": "Green (800)",
+          "slug": "green-800",
+          "color": "oklch(44.8% .119 151.328)"
+        },
+        {
+          "name": "Green (900)",
+          "slug": "green-900",
+          "color": "oklch(39.3% .095 152.535)"
+        },
+        {
+          "name": "Blue (50)",
+          "slug": "blue-50",
+          "color": "oklch(97% .014 254.604)"
+        },
+        {
+          "name": "Blue (100)",
+          "slug": "blue-100",
+          "color": "oklch(93.2% .032 255.585)"
+        },
+        {
+          "name": "Blue (200)",
+          "slug": "blue-200",
+          "color": "oklch(88.2% .059 254.128)"
+        },
+        {
+          "name": "Blue (300)",
+          "slug": "blue-300",
+          "color": "oklch(80.9% .105 251.813)"
+        },
+        {
+          "name": "Blue (400)",
+          "slug": "blue-400",
+          "color": "oklch(70.7% .165 254.624)"
+        },
+        {
+          "name": "Blue (500)",
+          "slug": "blue-500",
+          "color": "oklch(62.3% .214 259.815)"
+        },
+        {
+          "name": "Blue (600)",
+          "slug": "blue-600",
+          "color": "oklch(54.6% .245 262.881)"
+        },
+        {
+          "name": "Blue (700)",
+          "slug": "blue-700",
+          "color": "oklch(48.8% .243 264.376)"
+        },
+        {
+          "name": "Blue (800)",
+          "slug": "blue-800",
+          "color": "oklch(42.4% .199 265.638)"
+        },
+        {
+          "name": "Blue (900)",
+          "slug": "blue-900",
+          "color": "oklch(37.9% .146 265.522)"
+        },
+        {
+          "name": "Indigo (50)",
+          "slug": "indigo-50",
+          "color": "oklch(96.2% .018 272.314)"
+        },
+        {
+          "name": "Indigo (100)",
+          "slug": "indigo-100",
+          "color": "oklch(93% .034 272.788)"
+        },
+        {
+          "name": "Indigo (200)",
+          "slug": "indigo-200",
+          "color": "oklch(87% .065 274.039)"
+        },
+        {
+          "name": "Indigo (300)",
+          "slug": "indigo-300",
+          "color": "oklch(78.5% .115 274.713)"
+        },
+        {
+          "name": "Indigo (400)",
+          "slug": "indigo-400",
+          "color": "oklch(67.3% .182 276.935)"
+        },
+        {
+          "name": "Indigo (500)",
+          "slug": "indigo-500",
+          "color": "oklch(58.5% .233 277.117)"
+        },
+        {
+          "name": "Indigo (600)",
+          "slug": "indigo-600",
+          "color": "oklch(51.1% .262 276.966)"
+        },
+        {
+          "name": "Indigo (700)",
+          "slug": "indigo-700",
+          "color": "oklch(45.7% .24 277.023)"
+        },
+        {
+          "name": "Indigo (800)",
+          "slug": "indigo-800",
+          "color": "oklch(39.8% .195 277.366)"
+        },
+        {
+          "name": "Indigo (900)",
+          "slug": "indigo-900",
+          "color": "oklch(35.9% .144 278.697)"
+        },
+        {
+          "name": "Purple (50)",
+          "slug": "purple-50",
+          "color": "oklch(97.7% .014 308.299)"
+        },
+        {
+          "name": "Purple (100)",
+          "slug": "purple-100",
+          "color": "oklch(94.6% .033 307.174)"
+        },
+        {
+          "name": "Purple (200)",
+          "slug": "purple-200",
+          "color": "oklch(90.2% .063 306.703)"
+        },
+        {
+          "name": "Purple (300)",
+          "slug": "purple-300",
+          "color": "oklch(82.7% .119 306.383)"
+        },
+        {
+          "name": "Purple (400)",
+          "slug": "purple-400",
+          "color": "oklch(71.4% .203 305.504)"
+        },
+        {
+          "name": "Purple (500)",
+          "slug": "purple-500",
+          "color": "oklch(62.7% .265 303.9)"
+        },
+        {
+          "name": "Purple (600)",
+          "slug": "purple-600",
+          "color": "oklch(55.8% .288 302.321)"
+        },
+        {
+          "name": "Purple (700)",
+          "slug": "purple-700",
+          "color": "oklch(49.6% .265 301.924)"
+        },
+        {
+          "name": "Purple (800)",
+          "slug": "purple-800",
+          "color": "oklch(43.8% .218 303.724)"
+        },
+        {
+          "name": "Purple (900)",
+          "slug": "purple-900",
+          "color": "oklch(38.1% .176 304.987)"
+        },
+        {
+          "name": "Pink (50)",
+          "slug": "pink-50",
+          "color": "oklch(97.1% .014 343.198)"
+        },
+        {
+          "name": "Pink (100)",
+          "slug": "pink-100",
+          "color": "oklch(94.8% .028 342.258)"
+        },
+        {
+          "name": "Pink (200)",
+          "slug": "pink-200",
+          "color": "oklch(89.9% .061 343.231)"
+        },
+        {
+          "name": "Pink (300)",
+          "slug": "pink-300",
+          "color": "oklch(82.3% .12 346.018)"
+        },
+        {
+          "name": "Pink (400)",
+          "slug": "pink-400",
+          "color": "oklch(71.8% .202 349.761)"
+        },
+        {
+          "name": "Pink (500)",
+          "slug": "pink-500",
+          "color": "oklch(65.6% .241 354.308)"
+        },
+        {
+          "name": "Pink (600)",
+          "slug": "pink-600",
+          "color": "oklch(59.2% .249 .584)"
+        },
+        {
+          "name": "Pink (700)",
+          "slug": "pink-700",
+          "color": "oklch(52.5% .223 3.958)"
+        },
+        {
+          "name": "Pink (800)",
+          "slug": "pink-800",
+          "color": "oklch(45.9% .187 3.815)"
+        },
+        {
+          "name": "Pink (900)",
+          "slug": "pink-900",
+          "color": "oklch(40.8% .153 2.432)"
+        },
+        {
+          "name": "Gray (50)",
+          "slug": "gray-50",
+          "color": "oklch(98.5% .002 247.839)"
+        },
+        {
+          "name": "Gray (100)",
+          "slug": "gray-100",
+          "color": "oklch(96.7% .003 264.542)"
+        },
+        {
+          "name": "Gray (200)",
+          "slug": "gray-200",
+          "color": "oklch(92.8% .006 264.531)"
+        },
+        {
+          "name": "Gray (300)",
+          "slug": "gray-300",
+          "color": "oklch(87.2% .01 258.338)"
+        },
+        {
+          "name": "Gray (400)",
+          "slug": "gray-400",
+          "color": "oklch(70.7% .022 261.325)"
+        },
+        {
+          "name": "Gray (500)",
+          "slug": "gray-500",
+          "color": "oklch(55.1% .027 264.364)"
+        },
+        {
+          "name": "Gray (600)",
+          "slug": "gray-600",
+          "color": "oklch(44.6% .03 256.802)"
+        },
+        {
+          "name": "Gray (700)",
+          "slug": "gray-700",
+          "color": "oklch(37.3% .034 259.733)"
+        },
+        {
+          "name": "Gray (800)",
+          "slug": "gray-800",
+          "color": "oklch(27.8% .033 256.848)"
+        },
+        {
+          "name": "Gray (900)",
+          "slug": "gray-900",
+          "color": "oklch(21% .034 264.665)"
+        },
+        {
+          "name": "Gray (950)",
+          "slug": "gray-950",
+          "color": "oklch(13% .028 261.692)"
+        },
+        {
+          "name": "Stone (50)",
+          "slug": "stone-50",
+          "color": "oklch(98.5% .001 106.423)"
+        },
+        {
+          "name": "Stone (100)",
+          "slug": "stone-100",
+          "color": "oklch(97% .001 106.424)"
+        },
+        {
+          "name": "Stone (200)",
+          "slug": "stone-200",
+          "color": "oklch(92.3% .003 48.717)"
+        },
+        {
+          "name": "Stone (300)",
+          "slug": "stone-300",
+          "color": "oklch(86.9% .005 56.366)"
+        },
+        {
+          "name": "Stone (400)",
+          "slug": "stone-400",
+          "color": "oklch(70.9% .01 56.259)"
+        },
+        {
+          "name": "Stone (500)",
+          "slug": "stone-500",
+          "color": "oklch(55.3% .013 58.071)"
+        },
+        {
+          "name": "Stone (600)",
+          "slug": "stone-600",
+          "color": "oklch(44.4% .011 73.639)"
+        },
+        {
+          "name": "Stone (700)",
+          "slug": "stone-700",
+          "color": "oklch(37.4% .01 67.558)"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#000"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#fff"
+        }
+      ]
+    },
+    "custom": {
+      "spacing": {},
+      "typography": {
+        "font-size": {},
+        "line-height": {}
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "units": [
+        "px",
+        "%",
+        "em",
+        "rem",
+        "vw",
+        "vh"
+      ]
+    },
+    "typography": {
+      "defaultFontSizes": false,
+      "customFontSize": false,
+      "fontFamilies": [
+        {
+          "name": "sans",
+          "slug": "sans",
+          "fontFamily": "Barlow"
+        },
+        {
+          "name": "serif",
+          "slug": "serif",
+          "fontFamily": "ui-serif,Georgia,Cambria,Times New Roman,Times,serif"
+        },
+        {
+          "name": "mono",
+          "slug": "mono",
+          "fontFamily": "JetBrains Mono Variable"
+        }
+      ],
+      "fontSizes": [
+        {
+          "name": "xs",
+          "slug": "xs",
+          "size": ".75rem"
+        },
+        {
+          "name": "sm",
+          "slug": "sm",
+          "size": ".875rem"
+        },
+        {
+          "name": "base",
+          "slug": "base",
+          "size": "1rem"
+        },
+        {
+          "name": "lg",
+          "slug": "lg",
+          "size": "1.125rem"
+        },
+        {
+          "name": "xl",
+          "slug": "xl",
+          "size": "1.25rem"
+        },
+        {
+          "name": "2xl",
+          "slug": "2xl",
+          "size": "1.5rem"
+        },
+        {
+          "name": "3xl",
+          "slug": "3xl",
+          "size": "1.875rem"
+        },
+        {
+          "name": "4xl",
+          "slug": "4xl",
+          "size": "2.25rem"
+        },
+        {
+          "name": "5xl",
+          "slug": "5xl",
+          "size": "3rem"
+        },
+        {
+          "name": "6xl",
+          "slug": "6xl",
+          "size": "3.75rem"
+        },
+        {
+          "name": "7xl",
+          "slug": "7xl",
+          "size": "4.5rem"
+        },
+        {
+          "name": "8xl",
+          "slug": "8xl",
+          "size": "6rem"
+        },
+        {
+          "name": "9xl",
+          "slug": "9xl",
+          "size": "8rem"
+        }
+      ]
+    }
+  }
+}

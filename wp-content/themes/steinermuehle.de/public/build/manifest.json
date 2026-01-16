@@ -1,0 +1,68 @@
+{
+  "editor.deps.json": {
+    "file": "assets/editor.deps-DxpY22xl.json",
+    "src": "editor.deps.json"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-jBKGnyt9.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/css/editor.css": {
+    "file": "assets/editor-DKNdjT0B.css",
+    "src": "resources/css/editor.css",
+    "isEntry": true,
+    "name": "editor",
+    "names": [
+      "editor.css"
+    ]
+  },
+  "resources/images/DTV_150_rgb.jpg": {
+    "file": "assets/DTV_150_rgb-DtAGG3_h.jpg",
+    "src": "resources/images/DTV_150_rgb.jpg"
+  },
+  "resources/images/Landsichten_150_rgb.jpg": {
+    "file": "assets/Landsichten_150_rgb-D6UcY1Lv.jpg",
+    "src": "resources/images/Landsichten_150_rgb.jpg"
+  },
+  "resources/images/Steinermuehle-Waltersdorf.svg": {
+    "file": "assets/Steinermuehle-Waltersdorf-BduF9tZ1.svg",
+    "src": "resources/images/Steinermuehle-Waltersdorf.svg"
+  },
+  "resources/images/Vogtland_150_rgb.jpg": {
+    "file": "assets/Vogtland_150_rgb-DNu1lt4h.jpg",
+    "src": "resources/images/Vogtland_150_rgb.jpg"
+  },
+  "resources/images/facebook-01-stroke-rounded.svg": {
+    "file": "assets/facebook-01-stroke-rounded-reBXc8TJ.svg",
+    "src": "resources/images/facebook-01-stroke-rounded.svg"
+  },
+  "resources/images/steinermuehle-de-logo.png": {
+    "file": "assets/steinermuehle-de-logo-Cj8dRn3s.png",
+    "src": "resources/images/steinermuehle-de-logo.png"
+  },
+  "resources/images/steinermuehle.mp4": {
+    "file": "assets/steinermuehle-DzgTfbvE.mp4",
+    "src": "resources/images/steinermuehle.mp4"
+  },
+  "resources/images/youtube-stroke-rounded.svg": {
+    "file": "assets/youtube-stroke-rounded-CqyiH698.svg",
+    "src": "resources/images/youtube-stroke-rounded.svg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-l0sNRNKZ.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/editor.js": {
+    "file": "assets/editor-CfU4GbSP.js",
+    "name": "editor",
+    "src": "resources/js/editor.js",
+    "isEntry": true
+  }
+}
