@@ -1,0 +1,8 @@
+@import "tailwindcss";
+h1 {
+    @apply text-4xl lg:text-7xl font-bold text-balance text-center text-black hyphens-auto leading-tight;
+}
+
+p {
+    @apply font-sans! space-y-12 hyphens-auto text-justify text-stone-700 leading-snug text-3xl;
+}

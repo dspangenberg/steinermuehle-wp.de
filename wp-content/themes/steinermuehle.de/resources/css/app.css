@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@source "../views/";
+@source "../../app/";
+
+
+
+@theme {
+    /* Fonts */
+    --font-sans: "Barlow";
+    --font-mono: "JetBrains Mono Variable";
+
+    /* Spacing - base unit for all spacing utilities */
+    --spacing: 0.25rem; /* 4px - all utilities multiply this */
+
+    /* Custom spacing values */
+    --spacing-25: 6.25rem; /* for w-25 */
+    --spacing-50: 12.5rem; /* for w-50 */
+
+    /* Text sizes */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+}
+
+body {
+    font-family: var(--font-sans), sans-serif;
+}
+
+
+.video-docker {
+    @apply relative w-full h-screen;
+}
+
+.video-docker video {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video {
+    @apply absolute flex-1 object-cover min-w-full min-h-full top-0;
+}
+
+.video-docker::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.video-content {
+    @apply absolute left-0 right-0 flex-1 w-full border-white z-50 bottom-12 -translate-y-1/2;
+}
+
+.video-content > * + * {
+    margin-top: 0.5rem;
+}
+
+/* Typography */
+h1 {
+    @apply text-4xl lg:text-5xl font-bold mb-6 leading-tight;
+}
+
+h2 {
+    @apply text-3xl lg:text-4xl font-bold mb-4 leading-snug;
+}
+
+h3 {
+    @apply text-2xl lg:text-3xl font-bold mb-3 leading-snug;
+}
+
+h4 {
+    @apply text-xl lg:text-2xl font-semibold mb-2;
+}
+
+h5, h6 {
+    @apply text-lg lg:text-xl font-semibold mb-2;
+}
+
+p {
+    @apply mb-4 hyphens-auto text-2xl lg:text-3xl leading-relaxed text-stone-700 text-justify;
+}
+
+/* Hero */
+.hero {
+    @apply z-10 flex w-full overflow-hidden;
+}
+
+.hero-content {
+    @apply text-left max-w-7xl mx-auto px-8 lg:px-0;
+}
+
+.hero-content h1 {
+    @apply text-4xl lg:text-7xl font-bold text-balance text-white hyphens-auto leading-tight mb-0;
+}
+
+.hero-content h2 {
+    @apply text-2xl lg:text-4xl font-semibold text-white mb-0;
+}
+
+.page-header h1 {
+    @apply text-4xl lg:text-7xl font-bold text-balance text-center text-black hyphens-auto leading-tight;
+}
+
+.footer a {
+    @apply text-stone-700 hover:text-stone-500 no-underline pr-3;
+}
