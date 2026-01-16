@@ -26,6 +26,7 @@
                 alt="{{ $image['alt'] ?? '' }}"
                 class="w-full aspect-square object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
                 @click="open = true; currentIndex = {{ $index }}"
+                @touchend.prevent="open = true; currentIndex = {{ $index }}"
                 loading="lazy"
             />
         @endforeach

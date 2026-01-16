@@ -287,7 +287,7 @@ add_filter('render_block', function ($block_content, $block) {
         foreach ($images as $index => $image) {
             $alt = esc_attr($image['alt'] ?? '');
             $thumb = esc_url($image['thumb']);
-            $output .= '<img src="' . $thumb . '" alt="' . $alt . '" class="w-full aspect-square object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" @click="open = true; currentIndex = ' . $index . '" loading="lazy" />';
+            $output .= '<img src="' . $thumb . '" alt="' . $alt . '" class="w-full aspect-square object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" @click="open = true; currentIndex = ' . $index . '" @touchend.prevent="open = true; currentIndex = ' . $index . '" loading="lazy" />';
         }
 
         $output .= '</div>';

@@ -55,6 +55,7 @@ unset($__defined_vars, $__key, $__value); ?>
                 alt="<?php echo e($image['alt'] ?? ''); ?>"
                 class="w-full aspect-square object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
                 @click="open = true; currentIndex = <?php echo e($index); ?>"
+                @touchend.prevent="open = true; currentIndex = <?php echo e($index); ?>"
                 loading="lazy"
             />
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
