@@ -53,6 +53,24 @@
             <?php endif; ?>
         <?php endwhile; ?>
         </div>
+        <?php if (get_field('schedule_id')) : ?>
+            <h2 class="text-center">Belegungsplan</h2>
+            <div id="belegungsplan"></div>
+            <script>
+              eobp_config = {};
+              eobp_config.name = 'belegungsplan';
+              eobp_config.lid = <?php echo e(get_field('schedule_id')); ?>;
+              if (typeof _eobp_configs  === 'undefined') var _eobp_configs = [];
+              _eobp_configs.push(eobp_config);
+              if (!document.head.querySelector('script[data-id=eobp]')){
+                var script = document.createElement('script');
+                script.src = 'https://belegungskalender.api.eberl-online.net/v1/bundle.js';
+                script.async = true;
+                script.setAttribute('data-id', 'eobp');
+                document.head.appendChild(script);
+              }
+            </script>
+        <?php endif; ?>
      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginala766c2d312d6f7864fe218e2500d2bba)): ?>

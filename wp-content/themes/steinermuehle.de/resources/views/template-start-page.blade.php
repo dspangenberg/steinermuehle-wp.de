@@ -69,7 +69,9 @@
                 <img src="{{ get_theme_file_uri('resources/images/Vogtland_150_rgb.jpg') }}" class="w-50 mx-auto">
             </div>
             <div>
-                <img src="{{ get_theme_file_uri('resources/images/Landsichten_150_rgb.jpg') }}" class="w-50 mx-auto">
+                <a href="https://www.landsichten.de/gastgeber/steinermuehle-waltersdorf-mohlsdorf-teichwolframsdorf-ot-waltersdorf-8454" target="_blank">
+                    <img src="{{ get_theme_file_uri('resources/images/Landsichten_150_rgb.jpg') }}" class="w-50 mx-auto">
+                </a>
             </div>
         </div>
     </x-container>
