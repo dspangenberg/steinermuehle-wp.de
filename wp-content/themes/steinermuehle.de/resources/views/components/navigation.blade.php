@@ -11,8 +11,23 @@ navigationMenuOpen: false,
 },
 navigationMenuReposition(navElement) {
   this.navigationMenuClearCloseTimeout();
-  this.$refs.navigationDropdown.style.left = navElement.offsetLeft + 'px';
-  this.$refs.navigationDropdown.style.marginLeft = (navElement.offsetWidth/2) + 'px';
+  if (this.navigationMenu === 'learn-more') {
+    // Full width menu - center on viewport with fixed positioning
+    const rect = navElement.getBoundingClientRect();
+    this.$refs.navigationDropdown.style.position = 'fixed';
+    this.$refs.navigationDropdown.style.left = '50%';
+    this.$refs.navigationDropdown.style.transform = 'translateX(-50%)';
+    this.$refs.navigationDropdown.style.marginLeft = '0px';
+    // Small offset below the button
+    this.$refs.navigationDropdown.style.top = (rect.bottom + 4) + 'px';
+  } else {
+    // Normal menu - position under button
+    this.$refs.navigationDropdown.style.position = 'absolute';
+    this.$refs.navigationDropdown.style.left = navElement.offsetLeft + 'px';
+    this.$refs.navigationDropdown.style.marginLeft = (navElement.offsetWidth/2) + 'px';
+    this.$refs.navigationDropdown.style.transform = 'translateX(-50%)';
+    this.$refs.navigationDropdown.style.top = '100%';
+  }
 },
 navigationMenuClearCloseTimeout(){
   clearTimeout(this.navigationMenuCloseTimeout);
@@ -22,7 +37,7 @@ navigationMenuClose(){
   this.navigationMenu = '';
 }
 }"
-     class="relative z-50 w-auto mx-auto hidden md:flex text-left"
+     class="relative z-50 w-auto mx-auto hidden md:flex text-left no-underline"
 >
     <div class="relative">
         <ul
@@ -80,21 +95,21 @@ navigationMenuClose(){
                 </button>
             </li>
             <li>
-                <a href="#_"
+                <a href="/umgebung"
                    class="inline-flex justify-center items-center px-4 py-2 w-max h-10 text-lg font-medium rounded-md transition-colors hover:text-neutral-900 focus:outline-none disabled:opacity-50 disabled:pointer-events-none bg-background hover:bg-neutral-100 group"
                 >
                     Umgebung
                 </a>
             </li>
             <li>
-                <a href="#_"
+                <a href="/gaestestimmen"
                    class="inline-flex justify-center items-center px-4 py-2 w-max h-10 text-lg font-medium rounded-md transition-colors hover:text-neutral-900 focus:outline-none disabled:opacity-50 disabled:pointer-events-none bg-background hover:bg-neutral-100 group"
                 >
                     Gästestimmen
                 </a>
             </li>
             <li>
-                <a href="#_"
+                <a href="/anfahrt-kontakt"
                    class="inline-flex justify-center items-center px-4 py-2 w-max h-10 text-lg font-medium rounded-md transition-colors hover:text-neutral-900 focus:outline-none disabled:opacity-50 disabled:pointer-events-none bg-background hover:bg-neutral-100 group"
                 >
                     Anfahrt + Kontakt
@@ -110,8 +125,8 @@ navigationMenuClose(){
          x-transition:leave-start="opacity-100 scale-100"
          x-transition:leave-end="opacity-0 scale-90"
          @mouseover="navigationMenuClearCloseTimeout()" @mouseleave="navigationMenuLeave()"
-         :class="{ 'left-1/2 -translate-x-1/2 w-screen max-w-7xl' : navigationMenu == 'learn-more' }"
-         class="absolute top-0 pt-3 duration-200 ease-out -translate-x-1/2 translate-y-11" x-cloak
+         :class="{ 'w-screen max-w-7xl' : navigationMenu == 'learn-more' }"
+         class="absolute top-0 pt-3" x-cloak
     >
 
         <div
@@ -120,50 +135,44 @@ navigationMenuClose(){
         >
 
             <div x-show="navigationMenu == 'getting-started'"
-                 class="flex gap-x-3 justify-center items-stretch p-6 w-full max-w-2xl"
+                 class="flex gap-x-3 justify-center items-stretch p-6 w-full max-w-2xl ml-0"
             >
                 <div class="flex-shrink-0 pb-7 w-48 h-auto bg-white">
 
-                    <img src="/Quadra_Mockup_Steinermuehle.jpg" />
+                    <img src="{{ get_theme_file_uri('resources/images/Mockup_Steinermuehle_frei.png')}}" />
                 </div>
                 <div class="w-72">
-                    <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
-                        <span class="block mb-1 font-medium text-black">Geschichte + Buch</span>
-                        <span class="block font-light leading-5 opacity-70">Die Geschichte der Steinermühle und das Buch zur Mühle.</span>
+
+                    @query([
+                    'post_type' => 'page',
+                    'post_parent' => 27,
+                    'posts_per_page' => -1,
+                    'orderby' => 'menu_order',
+                    'order' => 'ASC'
+                    ])
+                    @posts
+                    <a href="@permalink" @click="navigationMenuClose()" class="block no-underline px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+                        <span class="block mb-1 font-medium text-lg no-underline text-black">@title</span>
+                        <span class="block font-light leading-5  no-underline text-base opacity-70">@field('menu_title')</span>
                     </a>
-                    <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
-                        <span class="block mb-1 font-medium text-black">Ahnengalerie</span>
-                        <span class="block leading-5 opacity-50"
-                        >Tiere, die mal in der Mühle gelebt haben.</span>
-                    </a>
+                    @endposts
                 </div>
             </div>
             <div x-show="navigationMenu == 'erlebnis'" class="flex justify-center items-stretch p-6 w-full">
                 <div class="w-96">
-                    <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
-                        <span class="block mb-1 font-medium text-black">Urlaub von Anfang an</span>
-                        <span class="block font-light leading-5 opacity-50">Ankommen und die Seele baumeln lassen.</span>
+                    @query([
+                    'post_type' => 'page',
+                    'post_parent' => 33,
+                    'posts_per_page' => -1,
+                    'orderby' => 'menu_order',
+                    'order' => 'ASC'
+                    ])
+                    @posts
+                    <a href="@permalink" @click="navigationMenuClose()" class="block no-underline px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+                        <span class="block mb-1 font-medium text-lg no-underline text-black">@title</span>
+                        <span class="block font-light leading-5  no-underline text-base opacity-70">@field('menu_title')</span>
                     </a>
-                    <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
-                        <span class="block mb-1 font-medium text-black">Ferien mit Kind</span>
-                        <span class="block font-light leading-5 opacity-50">The perfect all-in-one framework for building amazing apps.</span>
-                    </a>
-                    <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
-                        <span class="block mb-1 font-medium text-black">Ferien mit Hund</span>
-                        <span class="block leading-5 opacity-50"
-                        >An Alpine JS and Tailwind CSS UI library for awesome people. </span>
-                    </a>
-
-                    <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
-                        <span class="block mb-1 font-medium text-black">Seminare + mehr</span>
-                        <span class="block leading-5 opacity-50"
-                        >Seminare, Teambuilding und Familentreffen</span>
-                    </a>
-                    <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
-                        <span class="block mb-1 font-medium text-black">Feiertags-Specials</span>
-                        <span class="block leading-5 opacity-50"
-                        >Ostern und Weihnachten in der Steinermühle</span>
-                    </a>
+                    @endposts
                 </div>
             </div>
             <div x-show="navigationMenu == 'learn-more'" class="flex flex-col justify-center items-stretch p-6 w-full">

@@ -4,7 +4,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CIEqjHRA.css",
+    "file": "assets/app-DZciaW_4.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -28,6 +28,10 @@
   "resources/images/Landsichten_150_rgb.jpg": {
     "file": "assets/Landsichten_150_rgb-D6UcY1Lv.jpg",
     "src": "resources/images/Landsichten_150_rgb.jpg"
+  },
+  "resources/images/Mockup_Steinermuehle_frei.png": {
+    "file": "assets/Mockup_Steinermuehle_frei-BWuynm7v.png",
+    "src": "resources/images/Mockup_Steinermuehle_frei.png"
   },
   "resources/images/Steinermuehle-Waltersdorf.svg": {
     "file": "assets/Steinermuehle-Waltersdorf-BduF9tZ1.svg",

@@ -123,6 +123,10 @@ p {
     @apply text-4xl lg:text-7xl font-bold text-balance text-center text-black hyphens-auto leading-tight;
 }
 
+nav a {
+    @apply no-underline;
+}
+
 .footer a {
     @apply text-stone-700 hover:text-stone-500 no-underline pr-3;
 }
