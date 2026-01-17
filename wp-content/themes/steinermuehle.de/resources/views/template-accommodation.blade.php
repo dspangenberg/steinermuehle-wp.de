@@ -7,11 +7,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <img src="{{get_the_post_thumbnail_url(get_the_ID(), 'full')}}" class="aspect-video object-cover w-full h-auto video-docker mt-20" />
+
     <x-container class="my-24 space-y-12">
         @while(have_posts())
             @php the_post() @endphp
-
+            <img src="{{get_the_post_thumbnail_url(get_the_ID(), 'full')}}" class="aspect-video object-cover rounded-xl shadow-lg" />
             @include('partials.page-header')
 
             {!! render_content_without_galleries(get_the_ID()) !!}
@@ -27,6 +27,11 @@
             @endif
         @endwhile
         </div>
+            <h2>Preise</h2>
+            {!! get_field('price') !!}
+            <p>
+                Bitte beachten Sie unsere <a href="/agb">AGB</a>.
+            </p>
         @hasfield('schedule_id')
             <h2>Belegungsplan</h2>
             <div id="belegungsplan"></div>

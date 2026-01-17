@@ -13,6 +13,7 @@
             autoplay
             playsinline
             muted
+            onloadstart="this.playbackRate = 0.8;"
             loop>
             <source src="{{ get_theme_file_uri('resources/images/steinermuehle.mp4') }}" type="video/mp4" />
         </video>
