@@ -9,7 +9,26 @@
     $columns_json = json_encode($columns);
 @endphp
 
-<div id="{{ $gallery_id }}" class="mt-12" x-data='{ open: false, currentIndex: 0, images: {!! $images_json !!} }'>
+<div id="{{ $gallery_id }}" class="mt-12" x-data='{
+    open: false,
+    currentIndex: 0,
+    images: {!! $images_json !!},
+    touchStartX: 0,
+    touchEndX: 0,
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchStartX - this.touchEndX;
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next image
+                this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
+            } else {
+                // Swipe right - previous image
+                this.currentIndex = (this.currentIndex > 0) ? this.currentIndex - 1 : this.images.length - 1;
+            }
+        }
+    }
+}'>
     <div class="grid {{
         $columns === 1 ? 'grid-cols-1' :
         ($columns === 2 ? 'grid-cols-1 md:grid-cols-2' :
@@ -19,12 +38,12 @@
         ($columns === 6 ? 'grid-cols-2 md:grid-cols-4 lg:grid-cols-6' :
         ($columns === 7 ? 'grid-cols-2 md:grid-cols-4 lg:grid-cols-7' :
         'grid-cols-2 md:grid-cols-4 lg:grid-cols-8'))))))
-    }} gap-4">
+    }} gap-0.5">
         @foreach($images as $index => $image)
             <img
                 src="{{ $image['thumb'] }}"
                 alt="{{ $image['alt'] ?? '' }}"
-                class="w-full aspect-square object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                class="w-full aspect-square object-cover cursor-pointer hover:opacity-80 transition-opacity"
                 @click="open = true; currentIndex = {{ $index }}"
                 @touchend.prevent="open = true; currentIndex = {{ $index }}"
                 loading="lazy"
@@ -63,7 +82,11 @@
         @endif
 
         {{-- Image --}}
-        <div class="flex items-center justify-center w-full h-full pointer-events-none">
+        <div
+            class="flex items-center justify-center w-full h-full pointer-events-none"
+            @touchstart="touchStartX = $event.changedTouches[0].screenX"
+            @touchend="touchEndX = $event.changedTouches[0].screenX; handleSwipe()"
+        >
             <img
                 :src="images[currentIndex].url"
                 :alt="images[currentIndex].alt"

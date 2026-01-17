@@ -7,7 +7,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <img src="{{get_the_post_thumbnail_url(get_the_ID(), 'full')}}" class="aspect-video object-cover w-full h-auto lg:h-screen" />
+    <img src="{{get_the_post_thumbnail_url(get_the_ID(), 'full')}}" class="aspect-video object-cover w-full h-auto video-docker mt-20" />
     <x-container class="my-24 space-y-12">
         @while(have_posts())
             @php the_post() @endphp
@@ -21,7 +21,7 @@
             @endphp
 
         <div>
-            @if(count($images) > 0)
+                @if(count($images) > 0)
                 <x-gallery :images="$images" :columns="8" />
             @endif
         @endwhile

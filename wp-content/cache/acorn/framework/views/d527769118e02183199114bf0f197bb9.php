@@ -60,7 +60,7 @@
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['class' => 'footer']); ?>
-        <div class="my-6 flex items-center gap-3 divide-x divide-stone-300 text-base">
+        <div class="my-6 flex items-center justify-center gap-3 divide-x divide-stone-300 text-base">
             <a href="/impressum" class="pl-3">Impressum</a>
             <a href="/datenschutz" class="pl-3">Datenschutz</a>
             <a href="/agb" class="pl-3">AGB</a>

@@ -40,7 +40,26 @@ unset($__defined_vars, $__key, $__value); ?>
     $columns_json = json_encode($columns);
 ?>
 
-<div id="<?php echo e($gallery_id); ?>" class="mt-12" x-data='{ open: false, currentIndex: 0, images: <?php echo $images_json; ?> }'>
+<div id="<?php echo e($gallery_id); ?>" class="mt-12" x-data='{
+    open: false,
+    currentIndex: 0,
+    images: <?php echo $images_json; ?>,
+    touchStartX: 0,
+    touchEndX: 0,
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchStartX - this.touchEndX;
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next image
+                this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
+            } else {
+                // Swipe right - previous image
+                this.currentIndex = (this.currentIndex > 0) ? this.currentIndex - 1 : this.images.length - 1;
+            }
+        }
+    }
+}'>
     <div class="grid <?php echo e($columns === 1 ? 'grid-cols-1' :
         ($columns === 2 ? 'grid-cols-1 md:grid-cols-2' :
         ($columns === 3 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' :
@@ -48,12 +67,12 @@ unset($__defined_vars, $__key, $__value); ?>
         ($columns === 5 ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-5' :
         ($columns === 6 ? 'grid-cols-2 md:grid-cols-4 lg:grid-cols-6' :
         ($columns === 7 ? 'grid-cols-2 md:grid-cols-4 lg:grid-cols-7' :
-        'grid-cols-2 md:grid-cols-4 lg:grid-cols-8'))))))); ?> gap-4">
+        'grid-cols-2 md:grid-cols-4 lg:grid-cols-8'))))))); ?> gap-0.5">
         <?php $__currentLoopData = $images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <img
                 src="<?php echo e($image['thumb']); ?>"
                 alt="<?php echo e($image['alt'] ?? ''); ?>"
-                class="w-full aspect-square object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                class="w-full aspect-square object-cover cursor-pointer hover:opacity-80 transition-opacity"
                 @click="open = true; currentIndex = <?php echo e($index); ?>"
                 @touchend.prevent="open = true; currentIndex = <?php echo e($index); ?>"
                 loading="lazy"
@@ -92,7 +111,11 @@ unset($__defined_vars, $__key, $__value); ?>
         <?php endif; ?>
 
         
-        <div class="flex items-center justify-center w-full h-full pointer-events-none">
+        <div
+            class="flex items-center justify-center w-full h-full pointer-events-none"
+            @touchstart="touchStartX = $event.changedTouches[0].screenX"
+            @touchend="touchEndX = $event.changedTouches[0].screenX; handleSwipe()"
+        >
             <img
                 :src="images[currentIndex].url"
                 :alt="images[currentIndex].alt"

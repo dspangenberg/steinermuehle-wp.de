@@ -2,7 +2,10 @@
 @source "../views/";
 @source "../../app/";
 
-
+/* View Transitions */
+@view-transition {
+    navigation: auto;
+}
 
 @theme {
     /* Fonts */
@@ -46,7 +49,8 @@ html {
 
 
 .video-docker {
-    @apply relative w-full h-screen;
+    @apply relative w-full h-[calc(100vh-5rem)];
+    view-transition-name: video-hero;
 }
 
 .video-docker video {
@@ -71,6 +75,33 @@ html {
 
 .video-content {
     @apply absolute left-0 right-0 flex-1 w-full border-white z-50 bottom-12 -translate-y-1/2;
+}
+
+/* View Transitions Animations */
+::view-transition-old(root) {
+    animation: fade-out 0.3s ease-out;
+}
+
+::view-transition-new(root) {
+    animation: fade-in 0.3s ease-in;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .video-content > * + * {
@@ -104,7 +135,7 @@ p {
 
 /* Hero */
 .hero {
-    @apply z-10 flex w-full overflow-hidden;
+    @apply z-10 flex w-full overflow-hidden mt-20;
 }
 
 .hero-content {
@@ -129,4 +160,8 @@ nav a {
 
 .footer a {
     @apply text-stone-700 hover:text-stone-500 no-underline pr-3;
+}
+
+header.banner {
+    @apply fixed top-0 left-0 right-0 w-full h-20 bg-white/90 z-50;
 }

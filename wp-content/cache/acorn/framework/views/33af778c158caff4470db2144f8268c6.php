@@ -5,7 +5,7 @@
 
 
 <?php $__env->startSection('content'); ?>
-    <img src="<?php echo e(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" class="aspect-video object-cover w-full h-auto lg:h-screen" />
+    <img src="<?php echo e(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" class="aspect-video object-cover w-full h-auto video-docker mt-20" />
     <?php if (isset($component)) { $__componentOriginala766c2d312d6f7864fe218e2500d2bba = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginala766c2d312d6f7864fe218e2500d2bba = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.container','data' => ['class' => 'my-24 space-y-12']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -29,7 +29,7 @@
             ?>
 
         <div>
-            <?php if(count($images) > 0): ?>
+                <?php if(count($images) > 0): ?>
                 <?php if (isset($component)) { $__componentOriginal95dbe0677c992f5a27f7be25f2eb556a = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal95dbe0677c992f5a27f7be25f2eb556a = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.gallery','data' => ['images' => $images,'columns' => 8]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
