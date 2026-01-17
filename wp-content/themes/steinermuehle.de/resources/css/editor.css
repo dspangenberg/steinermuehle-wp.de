@@ -1,8 +1,28 @@
 @import "tailwindcss";
-h1 {
-    @apply text-4xl lg:text-7xl font-bold text-balance text-center text-black hyphens-auto leading-tight;
+p {
+    @apply mb-4 hyphens-auto text-2xl lg:text-3xl leading-relaxed text-stone-700 text-justify;
 }
 
-p {
-    @apply font-sans! space-y-12 hyphens-auto text-justify text-stone-700 leading-snug text-3xl;
+h1 {
+    @apply text-4xl lg:text-6xl font-bold mb-6 leading-tight;
+}
+
+h2 {
+    @apply text-3xl lg:text-5xl font-bold mb-4 leading-snug;
+}
+
+h3 {
+    @apply text-2xl lg:text-4xl font-bold mb-3 leading-snug;
+}
+
+h4 {
+    @apply text-xl lg:text-3xl font-semibold mb-2;
+}
+
+h5 {
+    @apply text-lg lg:text-2xl font-semibold mb-2;
+}
+
+h5 {
+    @apply text-lg lg:text-xl font-semibold mb-2;
 }

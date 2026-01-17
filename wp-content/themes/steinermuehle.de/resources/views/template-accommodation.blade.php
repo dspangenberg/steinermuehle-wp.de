@@ -22,12 +22,13 @@
 
         <div>
                 @if(count($images) > 0)
+                    <h2>Galerie</h2>
                 <x-gallery :images="$images" :columns="8" />
             @endif
         @endwhile
         </div>
         @hasfield('schedule_id')
-            <h2 class="text-center">Belegungsplan</h2>
+            <h2>Belegungsplan</h2>
             <div id="belegungsplan"></div>
             <script>
               eobp_config = {};

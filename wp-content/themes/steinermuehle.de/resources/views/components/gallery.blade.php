@@ -3,6 +3,7 @@
     'columns' => 4,
     'id' => null,
     'masonry' => false,
+    'class' => ''
 ])
 
 @php
@@ -11,7 +12,7 @@
     $columns_json = json_encode($columns);
 @endphp
 
-<div id="{{ $gallery_id }}" class="mt-12" x-data='{
+<div id="{{ $gallery_id }}"  class="{{ $class }}" x-data='{
     open: false,
     currentIndex: 0,
     images: {!! $images_json !!},
