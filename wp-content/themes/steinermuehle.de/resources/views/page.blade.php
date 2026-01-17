@@ -20,11 +20,9 @@
         $images = get_gallery_images(get_the_ID());
       @endphp
 
-      <div>
-        @if(count($images) > 0)
-          <x-gallery :images="$images" :columns="8" />
-        @endif
-        @endwhile
-      </div>
+      @if(count($images) > 0)
+        <x-gallery :images="$images" :columns="8" />
+      @endif
+    @endwhile
   </x-container>
 @endsection

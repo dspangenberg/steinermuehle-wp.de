@@ -62,4 +62,4 @@ collect(['setup', 'filters'])
 add_filter('show_admin_bar', '__return_false');
 
 // Versionskontrolle-Warnung ausblenden
-add_filter('automatic_updates_is_vcs_checkout', '__return_false');
+// add_filter('automatic_updates_is_vcs_checkout', '__return_false');

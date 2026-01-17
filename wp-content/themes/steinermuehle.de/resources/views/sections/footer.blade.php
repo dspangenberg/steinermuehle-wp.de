@@ -1,23 +1,27 @@
 <footer class="content-info">
     <div class="bg-stone-100 py-12 mt-12">
-        <x-container>
+        <x-container class="footer">
             <x-steinermuehle-footer-logo class="fill-stone-400"/>
-            <p class="text-xl! text-stone-600 mt-6">
+            <p class="text-xl! text-stone-600 mt-6 hidden md:block">
                 Carmen Reitberger • Ralf Meyer-Ahrens
+            </p>
+            <p class="text-xl! text-stone-600 mt-6 block md:hidden">
+                Carmen Reitberger<br/>
+                Ralf Meyer-Ahrens
             </p>
             <p class="text-xl! text-stone-600 mt-6">
                 Am Mühlberg 37<br/>
                 07987 Mohlsdorf<br/>
-                Telefon: 03 66 23/23 79 81<br/>
-                ferien@steinermuehle.de<br/>
+                Telefon <a href="tel:+49 36623 237981">+49 36623 237981</a><br/>
+                <a href="mailto:ferien@steinermuehle.de">ferien@steinermuehle.de</a>
             </p>
         </x-container>
     </div>
     <x-container class="footer">
-        <div class="my-6 flex items-center justify-center gap-3 divide-x divide-stone-300 text-base">
-            <a href="/impressum" class="pl-3">Impressum</a>
-            <a href="/datenschutz" class="pl-3">Datenschutz</a>
-            <a href="/agb" class="pl-3">AGB</a>
+        <div class="my-6 flex items-center justify-center gap-2 divide-x divide-stone-300 text-base">
+            <a href="/impressum">Impressum</a>
+            <a href="/datenschutz">Datenschutz</a>
+            <a href="/agb">AGB</a>
             <a href="https://www.facebook.com/steinermuehle/" target="_blank" rel="noopener noreferrer">
                 <x-facebook-icon />
             </a>

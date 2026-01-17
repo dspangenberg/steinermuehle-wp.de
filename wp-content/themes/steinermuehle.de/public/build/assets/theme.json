@@ -434,6 +434,11 @@
           "color": "oklch(92.2% 0 0)"
         },
         {
+          "name": "Neutral (600)",
+          "slug": "neutral-600",
+          "color": "oklch(43.9% 0 0)"
+        },
+        {
           "name": "Neutral (700)",
           "slug": "neutral-700",
           "color": "oklch(37.1% 0 0)"

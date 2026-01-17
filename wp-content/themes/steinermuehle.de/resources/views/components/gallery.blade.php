@@ -1,10 +1,12 @@
 @props([
     'images' => [],
     'columns' => 4,
+    'id' => null,
+    'masonry' => false,
 ])
 
 @php
-    $gallery_id = 'gallery-' . uniqid();
+    $gallery_id = $id ?? 'gallery-' . uniqid();
     $images_json = json_encode($images);
     $columns_json = json_encode($columns);
 @endphp
@@ -13,6 +15,7 @@
     open: false,
     currentIndex: 0,
     images: {!! $images_json !!},
+    galleryId: "{{ $gallery_id }}",
     touchStartX: 0,
     touchEndX: 0,
     handleSwipe() {
@@ -29,6 +32,96 @@
         }
     }
 }'>
+    @if($masonry)
+    {{-- Masonry Layout --}}
+    <div
+        x-data="{
+            columns: {{ $columns }},
+            init() {
+                this.$nextTick(() => {
+                    this.layoutMasonry();
+
+                    const images = this.$el.querySelectorAll('img');
+                    let loaded = 0;
+                    images.forEach(img => {
+                        if (img.complete) {
+                            loaded++;
+                            if (loaded === images.length) this.layoutMasonry();
+                        } else {
+                            img.addEventListener('load', () => {
+                                loaded++;
+                                if (loaded === images.length) this.layoutMasonry();
+                            });
+                        }
+                    });
+
+                    window.addEventListener('resize', () => this.layoutMasonry());
+                });
+            },
+            getColumnCount() {
+                if (window.innerWidth >= 1024) return this.columns;
+                if (window.innerWidth >= 768) return Math.min(this.columns, 4);
+                return 2;
+            },
+            layoutMasonry() {
+                const colCount = this.getColumnCount();
+                const columns = Array.from(this.$el.querySelectorAll('.masonry-column')).slice(0, colCount);
+
+                // Hide unused columns
+                const allColumns = this.$el.querySelectorAll('.masonry-column');
+                allColumns.forEach((col, idx) => {
+                    col.style.display = idx < colCount ? 'flex' : 'none';
+                });
+
+                // Clear visible columns
+                columns.forEach(col => col.innerHTML = '');
+
+                // Track column heights
+                const columnHeights = new Array(colCount).fill(0);
+
+                // Get all items
+                const items = Array.from(this.$el.querySelectorAll('.hidden .masonry-item'));
+
+                // Distribute items to shortest column
+                items.forEach(item => {
+                    const img = item.querySelector('img');
+                    const imgHeight = img.naturalHeight || img.offsetHeight || 300;
+                    const imgWidth = img.naturalWidth || img.offsetWidth || 300;
+
+                    // Find shortest column
+                    const shortestIndex = columnHeights.indexOf(Math.min(...columnHeights));
+
+                    // Clone and append to shortest column
+                    columns[shortestIndex].appendChild(item.cloneNode(true));
+
+                    // Update column height (proportional to container width)
+                    columnHeights[shortestIndex] += imgHeight / imgWidth;
+                });
+            }
+        }"
+        class="flex gap-1"
+    >
+        <div class="hidden">
+            @foreach($images as $index => $image)
+                <div class="masonry-item mb-1">
+                    <img
+                        src="{{ $image['thumb'] }}"
+                        alt="{{ $image['alt'] ?? '' }}"
+                        class="w-full h-auto cursor-pointer hover:opacity-80 transition-opacity block"
+                        @click="open = true; currentIndex = {{ $index }}"
+                        @touchend.prevent="open = true; currentIndex = {{ $index }}"
+                        loading="lazy"
+                    />
+                </div>
+            @endforeach
+        </div>
+
+        @for($i = 0; $i < $columns; $i++)
+            <div class="masonry-column flex-1 flex flex-col gap-1"></div>
+        @endfor
+    </div>
+    @else
+    {{-- Grid Layout --}}
     <div class="grid {{
         $columns === 1 ? 'grid-cols-1' :
         ($columns === 2 ? 'grid-cols-1 md:grid-cols-2' :
@@ -50,18 +143,20 @@
             />
         @endforeach
     </div>
+    @endif
 
     {{-- Lightbox --}}
     <div
         x-show="open"
         x-cloak
-        @keydown.escape.window="open = false"
+        @keydown.escape.window="if (open) open = false"
         @if(count($images) > 1)
-        @keydown.arrow-left.window="currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1"
-        @keydown.arrow-right.window="currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0"
+        @keydown.arrow-left.window="if (open) currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1"
+        @keydown.arrow-right.window="if (open) currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0"
         @endif
         @click.self="open = false"
         class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90"
+        :id="galleryId + '-lightbox'"
     >
         {{-- Close button --}}
         <button
